@@ -1,25 +1,42 @@
-
-<html>
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <script type="text/javascript"
-        src="https://cdn.jsdelivr.net/npm/brython@3.10.5/brython.min.js">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python Test</title>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/brython@3.10.5/brython.min.js">
     </script>
-    <script type="text/javascript"
-        src="https://cdn.jsdelivr.net/npm/brython@3.10.5/brython_stdlib.js">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/brython@3.10.5/brython_stdlib.js">
     </script>
 </head>
 
-<body onload="brython()">
-    <H1>Welcome to the Python group</H1>
-<script type="text/python">
-from browser import document
+<body">
 
-document <= "Hello !"
-</script>
+    <h1>This is a test 10</h1>
+
+    <label for="sentence"></label>
+    <input type="text" name="sentence" id="sentence">
+    <button onclick="brython()" name="submit" id="submit">Shuffle my sentence</button>
+
+    <label id="result" name="result"></label>
 
 
-</body>
+    <script type="text/python">
+            import browser
+            from browser import document, html
+            import random
+            # browser.alert('Hello Simon and Hoan')
+
+            list_raw =  document['sentence'].value # "the cat sat on the mat
+            words = list_raw.split()
+            random.shuffle(words)
+            final_sentence = ' '.join(words)
+            document <= html.P(html.U(html.B(final_sentence)))
+
+        </script>
+
+    </body>
 
 </html>
